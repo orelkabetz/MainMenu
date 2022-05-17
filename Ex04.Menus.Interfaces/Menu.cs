@@ -5,17 +5,20 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-    public class Menu : MenuItem, IOpstionObserver
+    public class Menu : Item, IOptionObserver
     {
         private const int k_Exit = 0;
-        private readonly List<MenuItem> r_MenuItems;
+        private readonly List<Item> r_MenuItems;
 
-        public Menu(string i_Title, IOpstionObserver i_ParentObserver) : base(i_Title,i_ParentObserver)
+        public Menu(string i_Title, IOptionObserver i_ParentObserver) : base(i_Title,i_ParentObserver)
         {
-            r_MenuItems = new List<MenuItem>(); 
+            r_MenuItems = new List<Item>(); 
+        }
+        public Menu(string i_Title, MainMenu i_ParentObserver) : this(i_Title, i_ParentObserver.Menu)
+        {
         }
 
-        void IOpstionObserver.OnOptionChosen()
+        void IOptionObserver.OnOptionChosen()
         {
             int userChoice = 0;
             bool quit = true;
@@ -30,7 +33,7 @@ namespace Ex04.Menus.Interfaces
 
                     if (userChoice != k_Exit)
                     {
-                        (r_MenuItems[userChoice - 1] as IOpstionObserver).OnOptionChosen();
+                        (r_MenuItems[userChoice - 1] as IOptionObserver).OnOptionChosen();
                     }
                 }
                 catch (Exception ex)
@@ -42,7 +45,7 @@ namespace Ex04.Menus.Interfaces
             } while (!quit);
         }
 
-        public void AddItem(MenuItem i_ItemToAdd)
+        public void AddItem(Item i_ItemToAdd)
         {
             r_MenuItems.Add(i_ItemToAdd);
         }
@@ -67,9 +70,10 @@ namespace Ex04.Menus.Interfaces
             bool IsSubMenu;
             int ItemNumber = 1;
 
-            foreach (MenuItem item in r_MenuItems)
+            foreach (Item item in r_MenuItems)
             {
                 Messages.PrintMenuItem(item.Title, ItemNumber);
+                ItemNumber++;
             }
 
             IsSubMenu = (r_OptionObserver != null);

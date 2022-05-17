@@ -5,15 +5,15 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-    public interface IOpstionObserver
+    public interface IOptionObserver
     {
         void OnOptionChosen();
     }
-    public abstract class MenuItem
+    public abstract class Item
     {
         private readonly string r_title;
-        protected readonly IOpstionObserver r_OptionObserver;
-        public MenuItem(string i_Title, IOpstionObserver i_OptionObserver)
+        protected readonly IOptionObserver r_OptionObserver;
+        public Item(string i_Title, IOptionObserver i_OptionObserver)
         {
             r_title = i_Title;
             r_OptionObserver = i_OptionObserver;

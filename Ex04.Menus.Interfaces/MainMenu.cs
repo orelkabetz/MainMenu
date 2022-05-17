@@ -8,18 +8,24 @@ namespace Ex04.Menus.Interfaces
     public class MainMenu
     {
         private readonly Menu r_MainMenu;
-        public MainMenu(Menu i_Menu)
+        public MainMenu(string i_Title)
         {
-            r_MainMenu = i_Menu;   
-        }
-        public string Title
-        { 
-            get { return r_Title; } 
+            r_MainMenu = new Menu(i_Title, this);
         }
 
-        public void AddItem(MenuItem i_ItemToAdd)
+        public Menu Menu
+        { get { return r_MainMenu; } }
+
+        public void AddItem(Item i_ItemToAdd)
         {
             r_MainMenu.AddItem(i_ItemToAdd);
+        }
+
+        public void Show()
+        {
+            Console.WriteLine(this);
+            (r_MainMenu as IOptionObserver).OnOptionChosen();
+            Messages.ByeBye();
         }
     }
 }
