@@ -7,7 +7,13 @@ namespace Ex04.Menus.Test
     {
         void IOptionObserver.OnOptionChosen()
         {
-            Console.WriteLine("The current time is: {0}:{1}:{2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+            Console.WriteLine("The current time is: {0}:{1}:{2}", 
+                DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+        }
+        public void OnOptionChosen()
+        {
+            Console.WriteLine("The current time is: {0}:{1}:{2}", 
+                DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
         }
     }
 }

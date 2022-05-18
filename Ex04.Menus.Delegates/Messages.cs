@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ex04.Menus.Interfaces
+namespace Ex04.Menus.Delegates
 {
     public static class Messages
     {
@@ -19,7 +19,7 @@ namespace Ex04.Menus.Interfaces
 
         public static void PrintExitOrBack(bool i_IsSubMenu)
         {
-            if (i_IsSubMenu)
+            if (!i_IsSubMenu)
             {
                 Console.WriteLine("0 -> BACK");
             }

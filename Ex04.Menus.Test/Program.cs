@@ -9,6 +9,9 @@ namespace Ex04.Menus.Test
     {
         public static void Main()
         {
+            DelegatesMenuGenerator delegatesMenu = new DelegatesMenuGenerator();
+            delegatesMenu.Menu.Show();
+
             InterfaceMenuGenerator interfaceMenu = new InterfaceMenuGenerator();
             interfaceMenu.Menu.Show();
         }

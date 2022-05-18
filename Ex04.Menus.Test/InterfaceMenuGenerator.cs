@@ -7,7 +7,7 @@ namespace Ex04.Menus.Test
         private MainMenu m_Menu;
         public InterfaceMenuGenerator()
         {
-            m_Menu = new MainMenu("Interface Menu");
+            m_Menu = new MainMenu("**Interface Main Menu**");
             Menu dateTimeMenu = new Menu("Show Date/Time", m_Menu);
             Menu versionMenu = new Menu("Version and Spaces", m_Menu);
 

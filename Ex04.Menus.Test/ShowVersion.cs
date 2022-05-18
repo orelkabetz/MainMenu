@@ -10,5 +10,10 @@ namespace Ex04.Menus.Test
             Version version = new Version();
             Console.WriteLine(version.ToString());
         }
+        public void OnOptionChosen()
+        {
+            Version version = new Version();
+            Console.WriteLine(version.ToString());
+        }
     }
 }

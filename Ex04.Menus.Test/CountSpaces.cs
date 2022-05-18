@@ -12,5 +12,12 @@ namespace Ex04.Menus.Test
             int count = sentence.Split(' ').Length - 1;
             Console.WriteLine("The number of spaces in the sentence is: {0}", count);
         }
+        public void OnOptionChosen()
+        {
+            Console.WriteLine("Please enter a sentence you would like to count spaces in: ");
+            string sentence = Console.ReadLine();
+            int count = sentence.Split(' ').Length - 1;
+            Console.WriteLine("The number of spaces in the sentence is: {0}", count);
+        }
     }
 }

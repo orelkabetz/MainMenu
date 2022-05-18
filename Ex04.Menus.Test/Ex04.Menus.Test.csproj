@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CountSpaces.cs" />
+    <Compile Include="DelegatesMenuGenerator.cs" />
     <Compile Include="InterfaceMenuGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ShowDate.cs" />
