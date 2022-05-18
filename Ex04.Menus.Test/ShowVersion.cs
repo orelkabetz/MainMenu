@@ -5,15 +5,14 @@ namespace Ex04.Menus.Test
 {
     public class ShowVersion : IOptionObserver
     {
+        private const string k_Version = "22.2.4.8950";
         void IOptionObserver.OnOptionChosen()
         {
-            Version version = new Version();
-            Console.WriteLine(version.ToString());
+            Console.WriteLine(k_Version);
         }
         public void OnOptionChosen()
         {
-            Version version = new Version();
-            Console.WriteLine(version.ToString());
+            Console.WriteLine(k_Version);
         }
     }
 }

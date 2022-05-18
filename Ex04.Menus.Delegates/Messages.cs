@@ -7,36 +7,45 @@ namespace Ex04.Menus.Delegates
 {
     public static class Messages
     {
+        private const string k_OptionChoise = "Please choose an option from the menu: ";
+        private const string k_ZeroArrowOne = "{0} -> {1}";
+        private const string k_ZeroArrowBack = "0 -> BACK";
+        private const string k_ZeroArrowExit = "0 -> EXIT";
+        private const string k_ByeByeMessage = "Thank you and Bye Bye!";
+        private const string k_PressAnyKey = "Press any key to continue";
+
+
         public static void UserChoice()
         {
-            Console.WriteLine("Please choose an option from the menu: ");
+            Console.WriteLine(k_OptionChoise);
         }
 
         public static void PrintMenuItem(string i_Title, int i_ItemNumber)
         {
-            Console.WriteLine("{0} -> {1}", i_ItemNumber, i_Title);
+            Console.WriteLine(k_ZeroArrowOne, i_ItemNumber, i_Title);
         }
 
         public static void PrintExitOrBack(bool i_IsSubMenu)
         {
             if (!i_IsSubMenu)
             {
-                Console.WriteLine("0 -> BACK");
+                Console.WriteLine(k_ZeroArrowBack);
             }
             else
             {
-                Console.WriteLine("0 -> EXIT");
+                Console.WriteLine(k_ZeroArrowExit);
             }
         }
 
         public static void ByeBye()
         {
-            Console.WriteLine("Thank you and Bye Bye!");
+            Console.WriteLine(k_ByeByeMessage);
+            PressAnyKey();
         }
 
         public static void PressAnyKey()
         {
-            Console.WriteLine("Press any key to continue");
+            Console.WriteLine(k_PressAnyKey);
             Console.ReadLine();
         }
     }

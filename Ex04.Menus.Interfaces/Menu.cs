@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
@@ -9,14 +7,18 @@ namespace Ex04.Menus.Interfaces
     {
         private const int k_Exit = 0;
         private readonly List<Item> r_MenuItems;
+        private const string k_FormatExceptionMassage = "Invalid input, Please enter an integer";
+        private const string k_ArgumentOutOfRangeExceptionMassage = "Invalid Option";
+
+        public Menu(string i_Title, MainMenu i_ParentObserver) : this(i_Title, i_ParentObserver.Menu)
+        {
+        }
 
         public Menu(string i_Title, IOptionObserver i_ParentObserver) : base(i_Title,i_ParentObserver)
         {
             r_MenuItems = new List<Item>(); 
         }
-        public Menu(string i_Title, MainMenu i_ParentObserver) : this(i_Title, i_ParentObserver.Menu)
-        {
-        }
+      
 
         void IOptionObserver.OnOptionChosen()
         {
@@ -56,11 +58,11 @@ namespace Ex04.Menus.Interfaces
             
             if (!Int32.TryParse(Console.ReadLine(), out userChoice))
             {
-                throw new FormatException("Invalid input, Please enter an integer");
+                throw new FormatException(k_FormatExceptionMassage);
             }
             if (userChoice < 0 || userChoice > r_MenuItems.Count)
             {
-                throw new ArgumentOutOfRangeException("Invalid Option");
+                throw new ArgumentOutOfRangeException(k_ArgumentOutOfRangeExceptionMassage);
             }
             return (userChoice == k_Exit);
         }

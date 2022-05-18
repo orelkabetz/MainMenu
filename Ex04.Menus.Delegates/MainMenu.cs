@@ -33,7 +33,6 @@ namespace Ex04.Menus.Delegates
         public void Show()
         {
             Console.WriteLine(this);
-            //(r_MainMenu as IOptionObserver).OnOptionChosen();
             r_MainMenu.OnOptionChosen();
             Messages.ByeBye();
         }

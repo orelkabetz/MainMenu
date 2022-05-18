@@ -9,6 +9,8 @@ namespace Ex04.Menus.Delegates
     {
         private const int k_Exit = 0;
         private readonly List<Item> r_MenuItems;
+        private const string k_FormatExceptionMassage = "Invalid input, Please enter an integer";
+        private const string k_ArgumentOutOfRangeExceptionMassage = "Invalid Option";
 
         public Menu(string i_Title) : base(i_Title)
         {
@@ -63,11 +65,11 @@ namespace Ex04.Menus.Delegates
 
             if (!Int32.TryParse(Console.ReadLine(), out userChoice))
             {
-                throw new FormatException("Invalid input, Please enter an integer");
+                throw new FormatException(k_FormatExceptionMassage);
             }
             if (userChoice < 0 || userChoice > r_MenuItems.Count)
             {
-                throw new ArgumentOutOfRangeException("Invalid Option");
+                throw new ArgumentOutOfRangeException(k_ArgumentOutOfRangeExceptionMassage);
             }
             return (userChoice == k_Exit);
         }
